@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bundler should bundle ts to js with sourcemap set to false 1`] = `
+"// test/resources/getTask.ts
+import { util as util2 } from "@aws-appsync/utils";
+
+// test/resources/utils.ts
+import { util } from "@aws-appsync/utils";
+var generateAutoId = () => util.autoId();
+
+// test/resources/getTask.ts
+function request(ctx) {
+  console.log("ctx.args.id", ctx.args.id);
+  return {
+    operation: "GetItem",
+    key: {
+      id: util2.dynamodb.toDynamoDB(ctx.args.id)
+    }
+  };
+}
+function response(ctx) {
+  return { ...ctx.result, id: generateAutoId() };
+}
+export {
+  request,
+  response
+};
+"
+`;
+
+exports[`bundler should bundle ts to js with sourcemap set to true 1`] = `
+"// test/resources/getTask.ts
+import { util as util2 } from "@aws-appsync/utils";
+
+// test/resources/utils.ts
+import { util } from "@aws-appsync/utils";
+var generateAutoId = () => util.autoId();
+
+// test/resources/getTask.ts
+function request(ctx) {
+  console.log("ctx.args.id", ctx.args.id);
+  return {
+    operation: "GetItem",
+    key: {
+      id: util2.dynamodb.toDynamoDB(ctx.args.id)
+    }
+  };
+}
+function response(ctx) {
+  return { ...ctx.result, id: generateAutoId() };
+}
+export {
+  request,
+  response
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidGVzdC9yZXNvdXJjZXMvZ2V0VGFzay50cyIsICJ0ZXN0L3Jlc291cmNlcy91dGlscy50cyJdLAogICJtYXBwaW5ncyI6ICI7QUFBQSxTQUEwQyxRQUFBQSxhQUFZOzs7QUNBdEQsU0FBUyxZQUFZO0FBQ2QsSUFBTSxpQkFBaUIsTUFBTSxLQUFLLE9BQU87OztBREd6QyxTQUFTLFFBQ2QsS0FDd0I7QUFDeEIsVUFBUSxJQUFJLGVBQWUsSUFBSSxLQUFLLEVBQUU7QUFFdEMsU0FBTztBQUFBLElBQ0wsV0FBVztBQUFBLElBQ1gsS0FBSztBQUFBLE1BQ0gsSUFBSUMsTUFBSyxTQUFTLFdBQVcsSUFBSSxLQUFLLEVBQUU7QUFBQSxJQUMxQztBQUFBLEVBQ0Y7QUFDRjtBQUVPLFNBQVMsU0FDZCxLQUNBO0FBQ0EsU0FBTyxFQUFFLEdBQUcsSUFBSSxRQUFRLElBQUksZUFBZSxFQUFFO0FBQy9DOyIsCiAgIm5hbWVzIjogWyJ1dGlsIiwgInV0aWwiXQp9Cg==
+"
+`;

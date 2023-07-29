@@ -1,0 +1,16 @@
+type Task {
+    id: ID!
+    title: String!
+    completed: Boolean!
+    user: User!
+}
+
+type User {
+    username: String!
+    name: String
+    tasks: [Task]
+}
+
+type Query {
+    getTask(id: ID!): Task
+}

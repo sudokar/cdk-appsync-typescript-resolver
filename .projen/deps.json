@@ -1,6 +1,10 @@
 {
   "dependencies": [
     {
+      "name": "@aws-appsync/utils",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -21,7 +25,7 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "2.1.0",
+      "version": "2.67.0",
       "type": "build"
     },
     {
@@ -104,8 +108,12 @@
       "type": "build"
     },
     {
+      "name": "esbuild",
+      "type": "bundled"
+    },
+    {
       "name": "aws-cdk-lib",
-      "version": "^2.1.0",
+      "version": "^2.67.0",
       "type": "peer"
     },
     {

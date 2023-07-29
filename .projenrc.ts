@@ -2,16 +2,25 @@ import { awscdk } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'sudokar',
   authorAddress: 'sudokar@yahoo.com',
-  cdkVersion: '2.1.0',
+  cdkVersion: '2.67.0',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.0.0',
-  name: 'cdk-appsync-typescript-resolver-projen',
+  name: 'cdk-appsync-typescript-resolver',
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/sudokar/cdk-appsync-typescript-resolver-projen.git',
+  repositoryUrl: 'https://github.com/sudokar/cdk-appsync-typescript-resolver.git',
+  keywords: ['appsync', 'typescript', 'resolver', 'javascript'],
 
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  description: 'AWS CDK construct to build AppSync JS resolvers using Typescript',
+  devDeps: ['@aws-appsync/utils'], /* Build dependencies for this module. */
+  packageName: 'cdk-appsync-typescript-resolver',
+  tsconfigDev: {
+    compilerOptions: {
+      lib: ['es2021'],
+    },
+  },
+  bundledDeps: ['esbuild'],
+
+  releaseToNpm: true,
+  gitignore: ['/.idea/'],
 });
 project.synth();

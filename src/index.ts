@@ -1,5 +1,2 @@
-export class Hello {
-  public sayHello() {
-    return 'hello, world!';
-  }
-}
+export * from './AppsyncTypescriptFunction';
+export * from './TSExpressPipelineResolver';

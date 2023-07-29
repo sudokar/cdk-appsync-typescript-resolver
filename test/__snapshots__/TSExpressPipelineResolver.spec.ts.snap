@@ -1,0 +1,352 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JSExpressPipelineResolver should generate pipeline resolver using appsync function 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ApiDefaultApiKeyF991C37B": {
+      "DependsOn": [
+        "ApiSchema510EECD7",
+      ],
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+      },
+      "Type": "AWS::AppSync::ApiKey",
+    },
+    "ApiF70053CD": {
+      "Properties": {
+        "AuthenticationType": "API_KEY",
+        "Name": "test-api",
+      },
+      "Type": "AWS::AppSync::GraphQLApi",
+    },
+    "ApiSchema510EECD7": {
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Definition": "type Task {
+    id: ID!
+    title: String!
+    completed: Boolean!
+    user: User!
+}
+
+type User {
+    username: String!
+    name: String
+    tasks: [Task]
+}
+
+type Query {
+    getTask(id: ID!): Task
+}",
+      },
+      "Type": "AWS::AppSync::GraphQLSchema",
+    },
+    "Test7BFAF513": {
+      "DependsOn": [
+        "ApiSchema510EECD7",
+        "TestDataStore25BF1982",
+      ],
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Code": "const abc = "xyz"",
+        "DataSourceName": "TestDataStore",
+        "FunctionVersion": "2018-05-29",
+        "Name": "TypescriptTest",
+      },
+      "Type": "AWS::AppSync::FunctionConfiguration",
+    },
+    "TestDataStore25BF1982": {
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Name": "TestDataStore",
+        "Type": "NONE",
+      },
+      "Type": "AWS::AppSync::DataSource",
+    },
+    "TestResolver0032C08D": {
+      "DependsOn": [
+        "ApiSchema510EECD7",
+      ],
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Code": "
+// The before step
+export function request() {
+    return {}
+}
+// The after step
+export function response(ctx) {
+    return ctx.prev.result
+}",
+        "FieldName": "hello",
+        "Kind": "PIPELINE",
+        "PipelineConfig": {
+          "Functions": [
+            {
+              "Fn::GetAtt": [
+                "Test7BFAF513",
+                "FunctionId",
+              ],
+            },
+          ],
+        },
+        "Runtime": {
+          "Name": "APPSYNC_JS",
+          "RuntimeVersion": "1.0.0",
+        },
+        "TypeName": "Query",
+      },
+      "Type": "AWS::AppSync::Resolver",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`JSExpressPipelineResolver should generate pipeline resolver using typescript function 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ApiDefaultApiKeyF991C37B": {
+      "DependsOn": [
+        "ApiSchema510EECD7",
+      ],
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+      },
+      "Type": "AWS::AppSync::ApiKey",
+    },
+    "ApiF70053CD": {
+      "Properties": {
+        "AuthenticationType": "API_KEY",
+        "Name": "test-api",
+      },
+      "Type": "AWS::AppSync::GraphQLApi",
+    },
+    "ApiSchema510EECD7": {
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Definition": "type Task {
+    id: ID!
+    title: String!
+    completed: Boolean!
+    user: User!
+}
+
+type User {
+    username: String!
+    name: String
+    tasks: [Task]
+}
+
+type Query {
+    getTask(id: ID!): Task
+}",
+      },
+      "Type": "AWS::AppSync::GraphQLSchema",
+    },
+    "Test7BFAF513": {
+      "DependsOn": [
+        "ApiSchema510EECD7",
+        "TestDataStore25BF1982",
+      ],
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Code": "// test/resources/getTask.ts
+import { util as util2 } from "@aws-appsync/utils";
+
+// test/resources/utils.ts
+import { util } from "@aws-appsync/utils";
+var generateAutoId = () => util.autoId();
+
+// test/resources/getTask.ts
+function request(ctx) {
+  console.log("ctx.args.id", ctx.args.id);
+  return {
+    operation: "GetItem",
+    key: {
+      id: util2.dynamodb.toDynamoDB(ctx.args.id)
+    }
+  };
+}
+function response(ctx) {
+  return { ...ctx.result, id: generateAutoId() };
+}
+export {
+  request,
+  response
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidGVzdC9yZXNvdXJjZXMvZ2V0VGFzay50cyIsICJ0ZXN0L3Jlc291cmNlcy91dGlscy50cyJdLAogICJtYXBwaW5ncyI6ICI7QUFBQSxTQUEwQyxRQUFBQSxhQUFZOzs7QUNBdEQsU0FBUyxZQUFZO0FBQ2QsSUFBTSxpQkFBaUIsTUFBTSxLQUFLLE9BQU87OztBREd6QyxTQUFTLFFBQ2QsS0FDd0I7QUFDeEIsVUFBUSxJQUFJLGVBQWUsSUFBSSxLQUFLLEVBQUU7QUFFdEMsU0FBTztBQUFBLElBQ0wsV0FBVztBQUFBLElBQ1gsS0FBSztBQUFBLE1BQ0gsSUFBSUMsTUFBSyxTQUFTLFdBQVcsSUFBSSxLQUFLLEVBQUU7QUFBQSxJQUMxQztBQUFBLEVBQ0Y7QUFDRjtBQUVPLFNBQVMsU0FDZCxLQUNBO0FBQ0EsU0FBTyxFQUFFLEdBQUcsSUFBSSxRQUFRLElBQUksZUFBZSxFQUFFO0FBQy9DOyIsCiAgIm5hbWVzIjogWyJ1dGlsIiwgInV0aWwiXQp9Cg==
+",
+        "DataSourceName": "TestDataStore",
+        "FunctionVersion": "2018-05-29",
+        "Name": "TypescriptTest",
+        "Runtime": {
+          "Name": "APPSYNC_JS",
+          "RuntimeVersion": "1.0.0",
+        },
+      },
+      "Type": "AWS::AppSync::FunctionConfiguration",
+    },
+    "TestDataStore25BF1982": {
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Name": "TestDataStore",
+        "Type": "NONE",
+      },
+      "Type": "AWS::AppSync::DataSource",
+    },
+    "TestResolver0032C08D": {
+      "DependsOn": [
+        "ApiSchema510EECD7",
+      ],
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Code": "
+// The before step
+export function request() {
+    return {}
+}
+// The after step
+export function response(ctx) {
+    return ctx.prev.result
+}",
+        "FieldName": "hello",
+        "Kind": "PIPELINE",
+        "PipelineConfig": {
+          "Functions": [
+            {
+              "Fn::GetAtt": [
+                "Test7BFAF513",
+                "FunctionId",
+              ],
+            },
+          ],
+        },
+        "Runtime": {
+          "Name": "APPSYNC_JS",
+          "RuntimeVersion": "1.0.0",
+        },
+        "TypeName": "Query",
+      },
+      "Type": "AWS::AppSync::Resolver",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
