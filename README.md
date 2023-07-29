@@ -1,6 +1,6 @@
 # cdk-appsync-typescript-resolver
 
-[![npm version](https://badge.fury.io/js/cdk-appsync-typescript-resolver.svg)](https://www.npmjs.com/package/cdk-appsync-typescript-resolver.svg)
+[![npm version](https://badge.fury.io/js/cdk-appsync-typescript-resolver.svg)](https://www.npmjs.com/package/cdk-appsync-typescript-resolver)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/73988a5fee2a473a92ea3ecb288dfbc3)](https://app.codacy.com/gh/sudokar/cdk-appsync-typescript-resolver/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/sudokar/nx-serverless)
