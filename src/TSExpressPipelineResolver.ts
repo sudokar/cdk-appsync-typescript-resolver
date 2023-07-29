@@ -1,13 +1,6 @@
 import * as appsync from 'aws-cdk-lib/aws-appsync';
 import type { IConstruct } from 'constructs';
-import { AppsyncTypescriptFunction } from './AppsyncTypescriptFunction';
-
-export interface TSExpressPipelineResolverProps extends appsync.ResolverProps {
-  /**
-   * Instance of AppsyncTypescriptFunction construct
-   */
-  readonly typescriptFunction: AppsyncTypescriptFunction;
-}
+import type { TSExpressPipelineResolverProps } from './TSExpressPipelineResolverProps';
 
 const defaultPipelineCode: string = `
 // The before step
@@ -28,7 +21,7 @@ export class TSExpressPipelineResolver extends appsync.Resolver {
     id: string,
     props: TSExpressPipelineResolverProps,
   ) {
-    const { typescriptFunction: appsyncFunction, ...resolverProps } = props;
+    const { tsFunction: appsyncFunction, ...resolverProps } = props;
     super(scope, id, {
       ...resolverProps,
       pipelineConfig: [appsyncFunction],

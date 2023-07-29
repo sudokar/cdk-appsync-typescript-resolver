@@ -13,7 +13,7 @@ let testStack: cdk.Stack;
 let testApi: appsync.GraphqlApi;
 
 // TODO: Investigate parametrised test issue
-describe('JSExpressPipelineResolver', () => {
+describe('TSExpressPipelineResolver', () => {
   beforeEach(() => {
     testStack = getTestStack();
     testApi = getTestApi(testStack);
@@ -29,7 +29,7 @@ describe('JSExpressPipelineResolver', () => {
       api: testApi,
       typeName: 'Query',
       fieldName: 'hello',
-      typescriptFunction: typescriptFunction,
+      tsFunction: typescriptFunction,
     });
 
     const template = Template.fromStack(testStack);
@@ -50,7 +50,7 @@ describe('JSExpressPipelineResolver', () => {
       api: testApi,
       typeName: 'Query',
       fieldName: 'hello',
-      typescriptFunction: appsyncFunction,
+      tsFunction: appsyncFunction,
     });
 
     const template = Template.fromStack(testStack);

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`JSExpressPipelineResolver should generate pipeline resolver using appsync function 1`] = `
+exports[`TSExpressPipelineResolver should generate pipeline resolver using appsync function 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -161,7 +161,7 @@ export function response(ctx) {
 }
 `;
 
-exports[`JSExpressPipelineResolver should generate pipeline resolver using typescript function 1`] = `
+exports[`TSExpressPipelineResolver should generate pipeline resolver using typescript function 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {

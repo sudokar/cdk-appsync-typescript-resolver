@@ -1,4 +1,7 @@
+import { CollectionKind, PrimitiveType } from '@jsii/spec';
+import { ProjenStruct, Struct } from '@mrgrain/jsii-struct-builder';
 import { awscdk } from 'projen';
+
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'sudokar',
   authorAddress: 'sudokar@yahoo.com',
@@ -11,7 +14,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['appsync', 'typescript', 'resolver', 'javascript'],
 
   description: 'AWS CDK construct to build AppSync JS resolvers using Typescript',
-  devDeps: ['@aws-appsync/utils'], /* Build dependencies for this module. */
+  devDeps: ['@aws-appsync/utils', '@mrgrain/jsii-struct-builder'], /* Build dependencies for this module. */
   packageName: 'cdk-appsync-typescript-resolver',
   tsconfigDev: {
     compilerOptions: {
@@ -23,4 +26,51 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releaseToNpm: true,
   gitignore: ['/.idea/'],
 });
+
+new ProjenStruct(project, { name: 'AppsyncTypescriptFunctionProps' })
+  .mixin(Struct.fromFqn('aws-cdk-lib.aws_appsync.AppsyncFunctionProps'))
+  .withoutDeprecated()
+  .omit('code', 'runtime')
+  .add({
+    name: 'path',
+    type: { primitive: PrimitiveType.String },
+    docs: {
+      summary: 'Path of typescript file that will be transpiled and bundled',
+    },
+  }, {
+    name: 'sourceMap',
+    optional: true,
+    type: { primitive: PrimitiveType.Boolean },
+    docs: {
+      summary: 'Flag to enable or disable source maps in bundled code. defaults to false',
+    },
+  },
+  {
+    name: 'replaceStrings',
+    optional: true,
+    type: { collection: { kind: CollectionKind.Map, elementtype: { primitive: PrimitiveType.String } } },
+    docs: {
+      summary: 'A map of replacement strings in the bundled code. e.g { ENV: "PROD" }',
+      example: '{ ENV: "PROD" }',
+    },
+  });
+
+new ProjenStruct(project, { name: 'TSExpressPipelineResolverProps' })
+  .mixin(Struct.fromFqn('aws-cdk-lib.aws_appsync.ResolverProps'))
+  .withoutDeprecated()
+  .omit(
+    'pipelineConfig',
+    'requestMappingTemplate',
+    'responseMappingTemplate',
+    'code',
+    'runtime')
+  .add({
+    name: 'tsFunction',
+    type: { fqn: 'cdk-appsync-typescript-resolver.AppsyncTypescriptFunction' },
+    docs: {
+      summary: 'Instance of AppsyncTypescriptFunction construct',
+      see: 'AppsyncTypescriptFunction',
+    },
+  });
+
 project.synth();

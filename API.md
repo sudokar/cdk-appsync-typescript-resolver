@@ -1,12 +1,14 @@
 # cdk-appsync-typescript-resolver
 
-[![npm version](https://badge.fury.io/js/cdk-appsync-typescript-resolver.svg)](https://badge.fury.io/js/cdk-appsync-typescript-resolver)
+[![npm version](https://badge.fury.io/js/cdk-appsync-typescript-resolver.svg)](https://www.npmjs.com/package/cdk-appsync-typescript-resolver.svg)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/73988a5fee2a473a92ea3ecb288dfbc3)](https://app.codacy.com/gh/sudokar/cdk-appsync-typescript-resolver/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/sudokar/nx-serverless)
 ![Maintained](https://img.shields.io/maintenance/yes/2023.svg)
 
 Constructs to transpile and bundle Typescript to valid AWS Appsync's JS resolvers
+
+[![View on Construct Hub](https://constructs.dev/badge?package=cdk-appsync-typescript-resolver)](https://constructs.dev/packages/cdk-appsync-typescript-resolver)
 
 # ✨ Highlights
 
@@ -24,7 +26,7 @@ const appsyncFunction = new AppsyncTypescriptFunction(stack, "TSDemoFunction", {
     api: new appsync.GraphqlApi(...),
     path: path.join(__dirname, "path", "to", "file.ts"),
     dataSource: new appsync.DynamoDbDataSource(...),
-    sourceMap,
+    sourceMap: true,
 });
 ```
 
@@ -37,7 +39,7 @@ const resolver = new TSExpressPipelineResolver(testStack, "DemoResolver", {
     api: new appsync.GraphqlApi(...),
     typeName: "Query",
     fieldName: "hello",
-    typescriptFunction: new AppsyncTypescriptFunction(...),
+    tsFunction: new AppsyncTypescriptFunction(...),
 });
 ```
 # API Reference <a name="API Reference" id="api-reference"></a>
@@ -434,6 +436,8 @@ the ARN of the resolver.
 
 ### AppsyncTypescriptFunctionProps <a name="AppsyncTypescriptFunctionProps" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps"></a>
 
+AppsyncTypescriptFunctionProps.
+
 #### Initializer <a name="Initializer" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.Initializer"></a>
 
 ```typescript
@@ -446,17 +450,39 @@ const appsyncTypescriptFunctionProps: AppsyncTypescriptFunctionProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.name">name</a></code> | <code>string</code> | the name of the AppSync Function. |
-| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.code">code</a></code> | <code>aws-cdk-lib.aws_appsync.Code</code> | The function code. |
-| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.description">description</a></code> | <code>string</code> | the description for this AppSync Function. |
-| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.requestMappingTemplate">requestMappingTemplate</a></code> | <code>aws-cdk-lib.aws_appsync.MappingTemplate</code> | the request mapping template for the AppSync Function. |
-| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.responseMappingTemplate">responseMappingTemplate</a></code> | <code>aws-cdk-lib.aws_appsync.MappingTemplate</code> | the response mapping template for the AppSync Function. |
-| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.runtime">runtime</a></code> | <code>aws-cdk-lib.aws_appsync.FunctionRuntime</code> | The functions runtime. |
 | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_appsync.IGraphqlApi</code> | the GraphQL Api linked to this AppSync Function. |
 | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.dataSource">dataSource</a></code> | <code>aws-cdk-lib.aws_appsync.BaseDataSource</code> | the data source linked to this AppSync Function. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.name">name</a></code> | <code>string</code> | the name of the AppSync Function. |
 | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.path">path</a></code> | <code>string</code> | Path of typescript file that will be transpiled and bundled. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.description">description</a></code> | <code>string</code> | the description for this AppSync Function. |
 | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.replaceStrings">replaceStrings</a></code> | <code>{[ key: string ]: string}</code> | A map of replacement strings in the bundled code. |
-| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.sourceMap">sourceMap</a></code> | <code>boolean</code> | Flag to enable or disable source maps in bundled code, defaulted to false. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.requestMappingTemplate">requestMappingTemplate</a></code> | <code>aws-cdk-lib.aws_appsync.MappingTemplate</code> | the request mapping template for the AppSync Function. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.responseMappingTemplate">responseMappingTemplate</a></code> | <code>aws-cdk-lib.aws_appsync.MappingTemplate</code> | the response mapping template for the AppSync Function. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.sourceMap">sourceMap</a></code> | <code>boolean</code> | Flag to enable or disable source maps in bundled code. |
+
+---
+
+##### `api`<sup>Required</sup> <a name="api" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.api"></a>
+
+```typescript
+public readonly api: IGraphqlApi;
+```
+
+- *Type:* aws-cdk-lib.aws_appsync.IGraphqlApi
+
+the GraphQL Api linked to this AppSync Function.
+
+---
+
+##### `dataSource`<sup>Required</sup> <a name="dataSource" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.dataSource"></a>
+
+```typescript
+public readonly dataSource: BaseDataSource;
+```
+
+- *Type:* aws-cdk-lib.aws_appsync.BaseDataSource
+
+the data source linked to this AppSync Function.
 
 ---
 
@@ -472,16 +498,15 @@ the name of the AppSync Function.
 
 ---
 
-##### `code`<sup>Optional</sup> <a name="code" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.code"></a>
+##### `path`<sup>Required</sup> <a name="path" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.path"></a>
 
 ```typescript
-public readonly code: Code;
+public readonly path: string;
 ```
 
-- *Type:* aws-cdk-lib.aws_appsync.Code
-- *Default:* no code is used
+- *Type:* string
 
-The function code.
+Path of typescript file that will be transpiled and bundled.
 
 ---
 
@@ -495,6 +520,20 @@ public readonly description: string;
 - *Default:* no description
 
 the description for this AppSync Function.
+
+---
+
+##### `replaceStrings`<sup>Optional</sup> <a name="replaceStrings" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.replaceStrings"></a>
+
+```typescript
+public readonly replaceStrings: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+A map of replacement strings in the bundled code.
+
+e.g { ENV: "PROD" }
 
 ---
 
@@ -524,69 +563,6 @@ the response mapping template for the AppSync Function.
 
 ---
 
-##### `runtime`<sup>Optional</sup> <a name="runtime" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.runtime"></a>
-
-```typescript
-public readonly runtime: FunctionRuntime;
-```
-
-- *Type:* aws-cdk-lib.aws_appsync.FunctionRuntime
-- *Default:* no function runtime, VTL mapping templates used
-
-The functions runtime.
-
----
-
-##### `api`<sup>Required</sup> <a name="api" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.api"></a>
-
-```typescript
-public readonly api: IGraphqlApi;
-```
-
-- *Type:* aws-cdk-lib.aws_appsync.IGraphqlApi
-
-the GraphQL Api linked to this AppSync Function.
-
----
-
-##### `dataSource`<sup>Required</sup> <a name="dataSource" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.dataSource"></a>
-
-```typescript
-public readonly dataSource: BaseDataSource;
-```
-
-- *Type:* aws-cdk-lib.aws_appsync.BaseDataSource
-
-the data source linked to this AppSync Function.
-
----
-
-##### `path`<sup>Required</sup> <a name="path" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.path"></a>
-
-```typescript
-public readonly path: string;
-```
-
-- *Type:* string
-
-Path of typescript file that will be transpiled and bundled.
-
----
-
-##### `replaceStrings`<sup>Optional</sup> <a name="replaceStrings" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.replaceStrings"></a>
-
-```typescript
-public readonly replaceStrings: {[ key: string ]: string};
-```
-
-- *Type:* {[ key: string ]: string}
-
-A map of replacement strings in the bundled code.
-
-Example: { "ENV", "prod" }
-
----
-
 ##### `sourceMap`<sup>Optional</sup> <a name="sourceMap" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.sourceMap"></a>
 
 ```typescript
@@ -595,11 +571,15 @@ public readonly sourceMap: boolean;
 
 - *Type:* boolean
 
-Flag to enable or disable source maps in bundled code, defaulted to false.
+Flag to enable or disable source maps in bundled code.
+
+defaults to false
 
 ---
 
 ### TSExpressPipelineResolverProps <a name="TSExpressPipelineResolverProps" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps"></a>
+
+TSExpressPipelineResolverProps.
 
 #### Initializer <a name="Initializer" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.Initializer"></a>
 
@@ -613,18 +593,25 @@ const tSExpressPipelineResolverProps: TSExpressPipelineResolverProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_appsync.IGraphqlApi</code> | The API this resolver is attached to. |
 | <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.fieldName">fieldName</a></code> | <code>string</code> | name of the GraphQL field in the given type this resolver is attached to. |
+| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.tsFunction">tsFunction</a></code> | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunction">AppsyncTypescriptFunction</a></code> | Instance of AppsyncTypescriptFunction construct. |
 | <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.typeName">typeName</a></code> | <code>string</code> | name of the GraphQL type this resolver is attached to. |
 | <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.cachingConfig">cachingConfig</a></code> | <code>aws-cdk-lib.aws_appsync.CachingConfig</code> | The caching configuration for this resolver. |
-| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.code">code</a></code> | <code>aws-cdk-lib.aws_appsync.Code</code> | The function code. |
-| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.maxBatchSize">maxBatchSize</a></code> | <code>number</code> | The maximum number of elements per batch, when using batch invoke. |
-| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.pipelineConfig">pipelineConfig</a></code> | <code>aws-cdk-lib.aws_appsync.IAppsyncFunction[]</code> | configuration of the pipeline resolver. |
-| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.requestMappingTemplate">requestMappingTemplate</a></code> | <code>aws-cdk-lib.aws_appsync.MappingTemplate</code> | The request mapping template for this resolver. |
-| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.responseMappingTemplate">responseMappingTemplate</a></code> | <code>aws-cdk-lib.aws_appsync.MappingTemplate</code> | The response mapping template for this resolver. |
-| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.runtime">runtime</a></code> | <code>aws-cdk-lib.aws_appsync.FunctionRuntime</code> | The functions runtime. |
 | <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.dataSource">dataSource</a></code> | <code>aws-cdk-lib.aws_appsync.BaseDataSource</code> | The data source this resolver is using. |
-| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_appsync.IGraphqlApi</code> | The API this resolver is attached to. |
-| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.typescriptFunction">typescriptFunction</a></code> | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunction">AppsyncTypescriptFunction</a></code> | Instance of AppsyncTypescriptFunction construct. |
+| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.maxBatchSize">maxBatchSize</a></code> | <code>number</code> | The maximum number of elements per batch, when using batch invoke. |
+
+---
+
+##### `api`<sup>Required</sup> <a name="api" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.api"></a>
+
+```typescript
+public readonly api: IGraphqlApi;
+```
+
+- *Type:* aws-cdk-lib.aws_appsync.IGraphqlApi
+
+The API this resolver is attached to.
 
 ---
 
@@ -637,6 +624,18 @@ public readonly fieldName: string;
 - *Type:* string
 
 name of the GraphQL field in the given type this resolver is attached to.
+
+---
+
+##### `tsFunction`<sup>Required</sup> <a name="tsFunction" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.tsFunction"></a>
+
+```typescript
+public readonly tsFunction: AppsyncTypescriptFunction;
+```
+
+- *Type:* <a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunction">AppsyncTypescriptFunction</a>
+
+Instance of AppsyncTypescriptFunction construct.
 
 ---
 
@@ -665,84 +664,6 @@ The caching configuration for this resolver.
 
 ---
 
-##### `code`<sup>Optional</sup> <a name="code" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.code"></a>
-
-```typescript
-public readonly code: Code;
-```
-
-- *Type:* aws-cdk-lib.aws_appsync.Code
-- *Default:* no code is used
-
-The function code.
-
----
-
-##### `maxBatchSize`<sup>Optional</sup> <a name="maxBatchSize" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.maxBatchSize"></a>
-
-```typescript
-public readonly maxBatchSize: number;
-```
-
-- *Type:* number
-- *Default:* No max batch size
-
-The maximum number of elements per batch, when using batch invoke.
-
----
-
-##### `pipelineConfig`<sup>Optional</sup> <a name="pipelineConfig" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.pipelineConfig"></a>
-
-```typescript
-public readonly pipelineConfig: IAppsyncFunction[];
-```
-
-- *Type:* aws-cdk-lib.aws_appsync.IAppsyncFunction[]
-- *Default:* no pipeline resolver configuration An empty array | undefined sets resolver to be of kind, unit
-
-configuration of the pipeline resolver.
-
----
-
-##### `requestMappingTemplate`<sup>Optional</sup> <a name="requestMappingTemplate" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.requestMappingTemplate"></a>
-
-```typescript
-public readonly requestMappingTemplate: MappingTemplate;
-```
-
-- *Type:* aws-cdk-lib.aws_appsync.MappingTemplate
-- *Default:* No mapping template
-
-The request mapping template for this resolver.
-
----
-
-##### `responseMappingTemplate`<sup>Optional</sup> <a name="responseMappingTemplate" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.responseMappingTemplate"></a>
-
-```typescript
-public readonly responseMappingTemplate: MappingTemplate;
-```
-
-- *Type:* aws-cdk-lib.aws_appsync.MappingTemplate
-- *Default:* No mapping template
-
-The response mapping template for this resolver.
-
----
-
-##### `runtime`<sup>Optional</sup> <a name="runtime" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.runtime"></a>
-
-```typescript
-public readonly runtime: FunctionRuntime;
-```
-
-- *Type:* aws-cdk-lib.aws_appsync.FunctionRuntime
-- *Default:* no function runtime, VTL mapping templates used
-
-The functions runtime.
-
----
-
 ##### `dataSource`<sup>Optional</sup> <a name="dataSource" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.dataSource"></a>
 
 ```typescript
@@ -756,27 +677,16 @@ The data source this resolver is using.
 
 ---
 
-##### `api`<sup>Required</sup> <a name="api" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.api"></a>
+##### `maxBatchSize`<sup>Optional</sup> <a name="maxBatchSize" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.maxBatchSize"></a>
 
 ```typescript
-public readonly api: IGraphqlApi;
+public readonly maxBatchSize: number;
 ```
 
-- *Type:* aws-cdk-lib.aws_appsync.IGraphqlApi
+- *Type:* number
+- *Default:* No max batch size
 
-The API this resolver is attached to.
-
----
-
-##### `typescriptFunction`<sup>Required</sup> <a name="typescriptFunction" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.typescriptFunction"></a>
-
-```typescript
-public readonly typescriptFunction: AppsyncTypescriptFunction;
-```
-
-- *Type:* <a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunction">AppsyncTypescriptFunction</a>
-
-Instance of AppsyncTypescriptFunction construct.
+The maximum number of elements per batch, when using batch invoke.
 
 ---
 
