@@ -25,6 +25,18 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   releaseToNpm: true,
   gitignore: ['/.idea/'],
+
+  autoMerge: true,
+  autoApproveOptions: {
+    allowedUsernames: ['cdklabs-automation'],
+    secret: 'GITHUB_TOKEN',
+  },
+  autoApproveUpgrades: true,
+
+  stale: true,
+
+  minNodeVersion: '18.17.0',
+  workflowNodeVersion: '18.x',
 });
 
 new ProjenStruct(project, { name: 'AppsyncTypescriptFunctionProps' })
