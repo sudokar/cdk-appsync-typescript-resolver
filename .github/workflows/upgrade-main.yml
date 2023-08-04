@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -77,6 +77,7 @@ jobs:
             *Automatically created by projen via the "upgrade-main" workflow*
           branch: github-actions/upgrade-main
           title: "chore(deps): upgrade dependencies"
+          labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 

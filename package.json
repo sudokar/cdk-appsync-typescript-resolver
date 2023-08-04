@@ -38,7 +38,7 @@
     "@aws-appsync/utils": "^1.2.5",
     "@mrgrain/jsii-struct-builder": "^0.5.3",
     "@types/jest": "^29.5.3",
-    "@types/node": "^16",
+    "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk-lib": "2.67.0",
@@ -78,6 +78,9 @@
     "resolver",
     "typescript"
   ],
+  "engines": {
+    "node": ">= 18.17.0"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.0",
