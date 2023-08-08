@@ -48,6 +48,8 @@ const resolver = new TSExpressPipelineResolver(testStack, "DemoResolver", {
 
 > Tip: Use [GraphQL Code Generator](https://the-guild.dev/graphql/codegen) to generate Typescript types from GraphQL schema(s) to use in resolvers
 
+Checkout the demo project for examples [cdk-appsync-typescript-resolver-demo](https://github.com/sudokar/cdk-appsync-typescript-resolver-demo)
+
 # References
 
 [JavaScript resolvers overview](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-overview-js.html)
