@@ -32,3 +32,13 @@ export const bundle = (props: BundleProps) => {
 
   return bundledCode;
 };
+
+export const defaultResolverCode: string = `
+// The before step
+export function request() {
+    return {}
+}
+// The after step
+export function response(ctx) {
+    return ctx.prev.result
+}`;

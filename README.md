@@ -17,6 +17,7 @@ Constructs to transpile and bundle Typescript to valid AWS Appsync's JS resolver
 
 - [AppsyncTypescriptFunction](src%2Flib%2FAppsyncTypescriptFunction.ts) - To transpile and bundle Typescript
 - [TSExpressPipelineResolver](src%2Flib%2FJSExpressPipelineResolver.ts) - To use AppsyncTypescriptFunction with boilerplate code
+- [AppsyncTypescriptResolver](src%2Flib%2FAppsyncTypescriptResolver.ts) - To transpile and bundle Typescript for a resolver with fallback to boilerplate code
 
 # 🚀 Usage
 
@@ -43,6 +44,23 @@ const resolver = new TSExpressPipelineResolver(testStack, "DemoResolver", {
     typeName: "Query",
     fieldName: "hello",
     tsFunction: new AppsyncTypescriptFunction(...),
+});
+```
+
+- AppsyncTypescriptResolver
+```typescript
+import { AppsyncTypescriptResolver } from 'cdk-appsync-typescript-resolver'
+...
+const appsyncFunction = new AppsyncTypescriptResolver(stack, "TSDemoPipeline", {
+    api: new appsync.GraphqlApi(...),
+    typeName: "Query",
+    fieldName: "hello",
+    pipelineConfig: [
+        new AppsyncTypescriptFunction(...),
+        new AppsyncTypescriptFunction(...),
+        new AppsyncTypescriptFunction(...),
+    ],
+    sourceMap: true,
 });
 ```
 

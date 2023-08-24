@@ -17,6 +17,7 @@
     ".projen/tasks.json",
     "LICENSE",
     "src/AppsyncTypescriptFunctionProps.ts",
+    "src/AppsyncTypescriptResolverProps.ts",
     "src/TSExpressPipelineResolverProps.ts",
     "tsconfig.dev.json"
   ],

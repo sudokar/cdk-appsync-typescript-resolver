@@ -56,3 +56,4 @@ tsconfig.json
 !/API.md
 !/src/AppsyncTypescriptFunctionProps.ts
 !/src/TSExpressPipelineResolverProps.ts
+!/src/AppsyncTypescriptResolverProps.ts

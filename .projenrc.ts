@@ -85,4 +85,37 @@ new ProjenStruct(project, { name: 'TSExpressPipelineResolverProps' })
     },
   });
 
+new ProjenStruct(project, { name: 'AppsyncTypescriptResolverProps' })
+  .mixin(Struct.fromFqn('aws-cdk-lib.aws_appsync.ResolverProps'))
+  .withoutDeprecated()
+  .omit(
+    'requestMappingTemplate',
+    'responseMappingTemplate',
+    'code',
+    'runtime')
+  .add({
+    name: 'path',
+    optional: true,
+    type: { primitive: PrimitiveType.String },
+    docs: {
+      summary: 'Path of typescript file that will be transpiled and bundled',
+    },
+  }, {
+    name: 'sourceMap',
+    optional: true,
+    type: { primitive: PrimitiveType.Boolean },
+    docs: {
+      summary: 'Flag to enable or disable source maps in bundled code. defaults to false',
+    },
+  },
+  {
+    name: 'replaceStrings',
+    optional: true,
+    type: { collection: { kind: CollectionKind.Map, elementtype: { primitive: PrimitiveType.String } } },
+    docs: {
+      summary: 'A map of replacement strings in the bundled code. e.g { ENV: "PROD" }',
+      example: '{ ENV: "PROD" }',
+    },
+  });
+
 project.synth();

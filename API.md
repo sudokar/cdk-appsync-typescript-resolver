@@ -17,6 +17,7 @@ Constructs to transpile and bundle Typescript to valid AWS Appsync's JS resolver
 
 - [AppsyncTypescriptFunction](src%2Flib%2FAppsyncTypescriptFunction.ts) - To transpile and bundle Typescript
 - [TSExpressPipelineResolver](src%2Flib%2FJSExpressPipelineResolver.ts) - To use AppsyncTypescriptFunction with boilerplate code
+- [AppsyncTypescriptResolver](src%2Flib%2FAppsyncTypescriptResolver.ts) - To transpile and bundle Typescript for a resolver with fallback to boilerplate code
 
 # 🚀 Usage
 
@@ -43,6 +44,23 @@ const resolver = new TSExpressPipelineResolver(testStack, "DemoResolver", {
     typeName: "Query",
     fieldName: "hello",
     tsFunction: new AppsyncTypescriptFunction(...),
+});
+```
+
+- AppsyncTypescriptResolver
+```typescript
+import { AppsyncTypescriptResolver } from 'cdk-appsync-typescript-resolver'
+...
+const appsyncFunction = new AppsyncTypescriptResolver(stack, "TSDemoPipeline", {
+    api: new appsync.GraphqlApi(...),
+    typeName: "Query",
+    fieldName: "hello",
+    pipelineConfig: [
+        new AppsyncTypescriptFunction(...),
+        new AppsyncTypescriptFunction(...),
+        new AppsyncTypescriptFunction(...),
+    ],
+    sourceMap: true,
 });
 ```
 
@@ -334,6 +352,120 @@ the name of this AppSync Function.
 ---
 
 
+### AppsyncTypescriptResolver <a name="AppsyncTypescriptResolver" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver"></a>
+
+Transpile and bundle Typescript to AWS Appsync JS resolver.
+
+#### Initializers <a name="Initializers" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.Initializer"></a>
+
+```typescript
+import { AppsyncTypescriptResolver } from 'cdk-appsync-typescript-resolver'
+
+new AppsyncTypescriptResolver(scope: IConstruct, id: string, props: AppsyncTypescriptResolverProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps">AppsyncTypescriptResolverProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps">AppsyncTypescriptResolverProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.isConstruct"></a>
+
+```typescript
+import { AppsyncTypescriptResolver } from 'cdk-appsync-typescript-resolver'
+
+AppsyncTypescriptResolver.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.property.arn">arn</a></code> | <code>string</code> | the ARN of the resolver. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `arn`<sup>Required</sup> <a name="arn" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolver.property.arn"></a>
+
+```typescript
+public readonly arn: string;
+```
+
+- *Type:* string
+
+the ARN of the resolver.
+
+---
+
+
 ### TSExpressPipelineResolver <a name="TSExpressPipelineResolver" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver"></a>
 
 Appsync's JS pipeline resolver with default bolierplate code using AppsyncTypescriptFunction construct.
@@ -580,6 +712,163 @@ the response mapping template for the AppSync Function.
 ---
 
 ##### `sourceMap`<sup>Optional</sup> <a name="sourceMap" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunctionProps.property.sourceMap"></a>
+
+```typescript
+public readonly sourceMap: boolean;
+```
+
+- *Type:* boolean
+
+Flag to enable or disable source maps in bundled code.
+
+defaults to false
+
+---
+
+### AppsyncTypescriptResolverProps <a name="AppsyncTypescriptResolverProps" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps"></a>
+
+AppsyncTypescriptResolverProps.
+
+#### Initializer <a name="Initializer" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.Initializer"></a>
+
+```typescript
+import { AppsyncTypescriptResolverProps } from 'cdk-appsync-typescript-resolver'
+
+const appsyncTypescriptResolverProps: AppsyncTypescriptResolverProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_appsync.IGraphqlApi</code> | The API this resolver is attached to. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.fieldName">fieldName</a></code> | <code>string</code> | name of the GraphQL field in the given type this resolver is attached to. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.typeName">typeName</a></code> | <code>string</code> | name of the GraphQL type this resolver is attached to. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.cachingConfig">cachingConfig</a></code> | <code>aws-cdk-lib.aws_appsync.CachingConfig</code> | The caching configuration for this resolver. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.dataSource">dataSource</a></code> | <code>aws-cdk-lib.aws_appsync.BaseDataSource</code> | The data source this resolver is using. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.maxBatchSize">maxBatchSize</a></code> | <code>number</code> | The maximum number of elements per batch, when using batch invoke. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.path">path</a></code> | <code>string</code> | Path of typescript file that will be transpiled and bundled. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.pipelineConfig">pipelineConfig</a></code> | <code>aws-cdk-lib.aws_appsync.IAppsyncFunction[]</code> | configuration of the pipeline resolver. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.replaceStrings">replaceStrings</a></code> | <code>{[ key: string ]: string}</code> | A map of replacement strings in the bundled code. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.sourceMap">sourceMap</a></code> | <code>boolean</code> | Flag to enable or disable source maps in bundled code. |
+
+---
+
+##### `api`<sup>Required</sup> <a name="api" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.api"></a>
+
+```typescript
+public readonly api: IGraphqlApi;
+```
+
+- *Type:* aws-cdk-lib.aws_appsync.IGraphqlApi
+
+The API this resolver is attached to.
+
+---
+
+##### `fieldName`<sup>Required</sup> <a name="fieldName" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.fieldName"></a>
+
+```typescript
+public readonly fieldName: string;
+```
+
+- *Type:* string
+
+name of the GraphQL field in the given type this resolver is attached to.
+
+---
+
+##### `typeName`<sup>Required</sup> <a name="typeName" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.typeName"></a>
+
+```typescript
+public readonly typeName: string;
+```
+
+- *Type:* string
+
+name of the GraphQL type this resolver is attached to.
+
+---
+
+##### `cachingConfig`<sup>Optional</sup> <a name="cachingConfig" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.cachingConfig"></a>
+
+```typescript
+public readonly cachingConfig: CachingConfig;
+```
+
+- *Type:* aws-cdk-lib.aws_appsync.CachingConfig
+- *Default:* No caching configuration
+
+The caching configuration for this resolver.
+
+---
+
+##### `dataSource`<sup>Optional</sup> <a name="dataSource" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.dataSource"></a>
+
+```typescript
+public readonly dataSource: BaseDataSource;
+```
+
+- *Type:* aws-cdk-lib.aws_appsync.BaseDataSource
+- *Default:* No datasource
+
+The data source this resolver is using.
+
+---
+
+##### `maxBatchSize`<sup>Optional</sup> <a name="maxBatchSize" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.maxBatchSize"></a>
+
+```typescript
+public readonly maxBatchSize: number;
+```
+
+- *Type:* number
+- *Default:* No max batch size
+
+The maximum number of elements per batch, when using batch invoke.
+
+---
+
+##### `path`<sup>Optional</sup> <a name="path" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.path"></a>
+
+```typescript
+public readonly path: string;
+```
+
+- *Type:* string
+
+Path of typescript file that will be transpiled and bundled.
+
+---
+
+##### `pipelineConfig`<sup>Optional</sup> <a name="pipelineConfig" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.pipelineConfig"></a>
+
+```typescript
+public readonly pipelineConfig: IAppsyncFunction[];
+```
+
+- *Type:* aws-cdk-lib.aws_appsync.IAppsyncFunction[]
+- *Default:* no pipeline resolver configuration An empty array | undefined sets resolver to be of kind, unit
+
+configuration of the pipeline resolver.
+
+---
+
+##### `replaceStrings`<sup>Optional</sup> <a name="replaceStrings" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.replaceStrings"></a>
+
+```typescript
+public readonly replaceStrings: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+A map of replacement strings in the bundled code.
+
+e.g { ENV: "PROD" }
+
+---
+
+##### `sourceMap`<sup>Optional</sup> <a name="sourceMap" id="cdk-appsync-typescript-resolver.AppsyncTypescriptResolverProps.property.sourceMap"></a>
 
 ```typescript
 public readonly sourceMap: boolean;

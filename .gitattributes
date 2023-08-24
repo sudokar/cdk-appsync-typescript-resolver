@@ -22,6 +22,7 @@
 /LICENSE linguist-generated
 /package.json linguist-generated
 /src/AppsyncTypescriptFunctionProps.ts linguist-generated
+/src/AppsyncTypescriptResolverProps.ts linguist-generated
 /src/TSExpressPipelineResolverProps.ts linguist-generated
 /tsconfig.dev.json linguist-generated
 /yarn.lock linguist-generated
