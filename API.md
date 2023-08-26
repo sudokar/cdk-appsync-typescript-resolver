@@ -647,9 +647,7 @@ name of the GraphQL field in the given type this resolver is attached to.
 
 ---
 
-##### ~~`tsFunction`~~<sup>Required</sup> <a name="tsFunction" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.tsFunction"></a>
-
-- *Deprecated:* Appsync now natively supports Unit resolvers. Ref: https://aws.amazon.com/about-aws/whats-new/2023/08/aws-appsync-javascript-all-resolvers-graphql-apis
+##### `tsFunction`<sup>Required</sup> <a name="tsFunction" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.tsFunction"></a>
 
 ```typescript
 public readonly tsFunction: AppsyncTypescriptFunction;
