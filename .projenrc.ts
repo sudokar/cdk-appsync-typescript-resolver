@@ -26,6 +26,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releaseToNpm: true,
   gitignore: ['/.idea/'],
 
+  githubOptions: {
+    mergify: true,
+  },
   autoMerge: true,
   autoApproveOptions: {
     allowedUsernames: ['cdklabs-automation'],
