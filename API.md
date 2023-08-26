@@ -380,7 +380,7 @@ new TSExpressPipelineResolver(scope: IConstruct, id: string, props: TSExpressPip
 
 ---
 
-##### `toString` <a name="toString" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.toString"></a>
+##### ~~`toString`~~ <a name="toString" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.toString"></a>
 
 ```typescript
 public toString(): string
@@ -423,7 +423,9 @@ Any object.
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.property.node"></a>
+##### ~~`node`~~<sup>Required</sup> <a name="node" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.property.node"></a>
+
+- *Deprecated:* - Appsync now natively supports Unit resolvers. Ref: https://aws.amazon.com/about-aws/whats-new/2023/08/aws-appsync-javascript-all-resolvers-graphql-apis
 
 ```typescript
 public readonly node: Node;
@@ -435,7 +437,9 @@ The tree node.
 
 ---
 
-##### `arn`<sup>Required</sup> <a name="arn" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.property.arn"></a>
+##### ~~`arn`~~<sup>Required</sup> <a name="arn" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.property.arn"></a>
+
+- *Deprecated:* - Appsync now natively supports Unit resolvers. Ref: https://aws.amazon.com/about-aws/whats-new/2023/08/aws-appsync-javascript-all-resolvers-graphql-apis
 
 ```typescript
 public readonly arn: string;
@@ -643,7 +647,9 @@ name of the GraphQL field in the given type this resolver is attached to.
 
 ---
 
-##### `tsFunction`<sup>Required</sup> <a name="tsFunction" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.tsFunction"></a>
+##### ~~`tsFunction`~~<sup>Required</sup> <a name="tsFunction" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolverProps.property.tsFunction"></a>
+
+- *Deprecated:* Appsync now natively supports Unit resolvers. Ref: https://aws.amazon.com/about-aws/whats-new/2023/08/aws-appsync-javascript-all-resolvers-graphql-apis
 
 ```typescript
 public readonly tsFunction: AppsyncTypescriptFunction;

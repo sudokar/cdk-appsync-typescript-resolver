@@ -14,6 +14,7 @@ export function response(ctx) {
 
 /**
  * Appsync's JS pipeline resolver with default bolierplate code using AppsyncTypescriptFunction construct
+ * @deprecated - Appsync now natively supports Unit resolvers. Ref: https://aws.amazon.com/about-aws/whats-new/2023/08/aws-appsync-javascript-all-resolvers-graphql-apis
  */
 export class TSExpressPipelineResolver extends appsync.Resolver {
   constructor(
