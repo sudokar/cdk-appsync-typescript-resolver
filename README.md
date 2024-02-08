@@ -6,7 +6,7 @@
 [![GitHub release (latest SemVer)](https://img.shields.io/github/release/sudokar/cdk-appsync-typescript-resolver?sort=semver&style=flat-square)](https://github.com/sudokar/cdk-appsync-typescript-resolver/releases)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/sudokar/nx-serverless)
-![Maintained](https://img.shields.io/maintenance/yes/2023.svg)
+![Maintained](https://img.shields.io/maintenance/yes/2024.svg)
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/sudokar/cdk-appsync-typescript-resolver)
 
 Constructs to transpile and bundle Typescript to valid AWS Appsync's JS resolvers
