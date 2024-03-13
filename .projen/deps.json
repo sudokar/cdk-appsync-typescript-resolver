@@ -14,7 +14,7 @@
     },
     {
       "name": "@types/node",
-      "version": "^18",
+      "version": "^20",
       "type": "build"
     },
     {
@@ -25,6 +25,10 @@
     {
       "name": "@typescript-eslint/parser",
       "version": "^6",
+      "type": "build"
+    },
+    {
+      "name": "esbuild",
       "type": "build"
     },
     {
@@ -93,10 +97,6 @@
       "type": "build"
     },
     {
-      "name": "esbuild",
-      "type": "bundled"
-    },
-    {
       "name": "aws-cdk-lib",
       "version": "^2.67.0",
       "type": "peer"
@@ -104,6 +104,10 @@
     {
       "name": "constructs",
       "version": "^10.0.5",
+      "type": "peer"
+    },
+    {
+      "name": "esbuild",
       "type": "peer"
     }
   ],
