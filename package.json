@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@aws-appsync/utils": "^1.7.0",
-    "@mrgrain/jsii-struct-builder": "^0.7.15",
+    "@mrgrain/jsii-struct-builder": "^0.7.18",
     "@types/jest": "^29.5.12",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^6",
@@ -49,22 +49,22 @@
     "jest": "^29.7.0",
     "jest-junit": "^15",
     "jsii": "~5.0.0",
-    "jsii-diff": "^1.94.0",
+    "jsii-diff": "^1.95.0",
     "jsii-docgen": "^9.2.2",
-    "jsii-pacmak": "^1.94.0",
+    "jsii-pacmak": "^1.95.0",
     "jsii-rosetta": "~5.0.0",
-    "projen": "^0.79.21",
+    "projen": "^0.80.10",
     "standard-version": "^9",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.67.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "esbuild": "^0.20.0"
+    "esbuild": "^0.20.1"
   },
   "bundledDependencies": [
     "esbuild"
