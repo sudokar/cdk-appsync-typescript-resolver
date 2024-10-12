@@ -35,36 +35,36 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-appsync/utils": "^1.7.0",
-    "@mrgrain/jsii-struct-builder": "^0.7.18",
-    "@types/jest": "^29.5.12",
+    "@aws-appsync/utils": "^1.9.0",
+    "@mrgrain/jsii-struct-builder": "^0.7.43",
+    "@types/jest": "^29.5.13",
     "@types/node": "^18",
-    "@typescript-eslint/eslint-plugin": "^6",
-    "@typescript-eslint/parser": "^6",
+    "@typescript-eslint/eslint-plugin": "^7",
+    "@typescript-eslint/parser": "^7",
     "aws-cdk-lib": "2.67.0",
+    "commit-and-tag-version": "^12",
     "constructs": "10.0.5",
     "eslint": "^8",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
     "jest": "^29.7.0",
     "jest-junit": "^15",
     "jsii": "~5.0.0",
-    "jsii-diff": "^1.95.0",
-    "jsii-docgen": "^9.2.2",
-    "jsii-pacmak": "^1.95.0",
+    "jsii-diff": "^1.104.0",
+    "jsii-docgen": "^10.5.0",
+    "jsii-pacmak": "^1.104.0",
     "jsii-rosetta": "~5.0.0",
-    "projen": "^0.80.10",
-    "standard-version": "^9",
-    "ts-jest": "^29.1.2",
+    "projen": "^0.88.2",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.6.3"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.67.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "esbuild": "^0.20.1"
+    "esbuild": "^0.24.0"
   },
   "bundledDependencies": [
     "esbuild"
@@ -81,11 +81,17 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
+    "coverageProvider": "v8",
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.ts?(x)",
-      "<rootDir>/(test|src)/**/*(*.)@(spec|test).ts?(x)"
+      "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
+      "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/@(projenrc)/**/*(*.)@(spec|test).ts?(x)",
+      "<rootDir>/@(projenrc)/**/__tests__/**/*.ts?(x)"
     ],
     "clearMocks": true,
     "collectCoverage": true,
