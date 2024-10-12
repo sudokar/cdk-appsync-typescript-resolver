@@ -5,9 +5,9 @@ import { awscdk } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'sudokar',
   authorAddress: 'sudokar@yahoo.com',
-  cdkVersion: '2.67.0',
+  cdkVersion: '2.162.0',
   defaultReleaseBranch: 'main',
-  jsiiVersion: '~5.0.0',
+  jsiiVersion: '~5.5.0',
   name: 'cdk-appsync-typescript-resolver',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/sudokar/cdk-appsync-typescript-resolver.git',
@@ -38,8 +38,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   stale: true,
 
-  minNodeVersion: '18.17.0',
-  workflowNodeVersion: '18.x',
+  minNodeVersion: '20.0.0',
+  workflowNodeVersion: '20.x',
 });
 
 new ProjenStruct(project, { name: 'AppsyncTypescriptFunctionProps' })
@@ -85,6 +85,39 @@ new ProjenStruct(project, { name: 'TSExpressPipelineResolverProps' })
     docs: {
       summary: 'Instance of AppsyncTypescriptFunction construct',
       see: 'AppsyncTypescriptFunction',
+    },
+  });
+
+new ProjenStruct(project, { name: 'TypescriptUnitResolverProps' })
+  .mixin(Struct.fromFqn('aws-cdk-lib.aws_appsync.ResolverProps'))
+  .withoutDeprecated()
+  .omit(
+    'pipelineConfig',
+    'requestMappingTemplate',
+    'responseMappingTemplate',
+    'code',
+    'runtime')
+  .add({
+    name: 'path',
+    type: { primitive: PrimitiveType.String },
+    docs: {
+      summary: 'Path of typescript file that will be transpiled and bundled',
+    },
+  }, {
+    name: 'sourceMap',
+    optional: true,
+    type: { primitive: PrimitiveType.Boolean },
+    docs: {
+      summary: 'Flag to enable or disable source maps in bundled code. defaults to false',
+    },
+  },
+  {
+    name: 'replaceStrings',
+    optional: true,
+    type: { collection: { kind: CollectionKind.Map, elementtype: { primitive: PrimitiveType.String } } },
+    docs: {
+      summary: 'A map of replacement strings in the bundled code. e.g { ENV: "PROD" }',
+      example: '{ ENV: "PROD" }',
     },
   });
 

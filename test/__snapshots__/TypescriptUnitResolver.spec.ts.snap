@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TypescriptUnitResolver should create JS unit resolver for typescript file path 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ApiDefaultApiKeyF991C37B": {
+      "DependsOn": [
+        "ApiSchema510EECD7",
+      ],
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+      },
+      "Type": "AWS::AppSync::ApiKey",
+    },
+    "ApiF70053CD": {
+      "Properties": {
+        "AuthenticationType": "API_KEY",
+        "Name": "test-api",
+      },
+      "Type": "AWS::AppSync::GraphQLApi",
+    },
+    "ApiSchema510EECD7": {
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Definition": "type Task {
+    id: ID!
+    title: String!
+    completed: Boolean!
+    user: User!
+}
+
+type User {
+    username: String!
+    name: String
+    tasks: [Task]
+}
+
+type Query {
+    getTask(id: ID!): Task
+}",
+      },
+      "Type": "AWS::AppSync::GraphQLSchema",
+    },
+    "TestResolver0032C08D": {
+      "DependsOn": [
+        "ApiSchema510EECD7",
+      ],
+      "Properties": {
+        "ApiId": {
+          "Fn::GetAtt": [
+            "ApiF70053CD",
+            "ApiId",
+          ],
+        },
+        "Code": "// test/resources/getTask.ts
+import { util as util2 } from "@aws-appsync/utils";
+
+// test/resources/utils.ts
+import { util } from "@aws-appsync/utils";
+var generateAutoId = () => util.autoId();
+
+// test/resources/getTask.ts
+function request(ctx) {
+  console.log("ctx.args.id", ctx.args.id);
+  return {
+    operation: "GetItem",
+    key: {
+      id: util2.dynamodb.toDynamoDB(ctx.args.id)
+    }
+  };
+}
+function response(ctx) {
+  return { ...ctx.result, id: generateAutoId() };
+}
+export {
+  request,
+  response
+};
+",
+        "FieldName": "hello",
+        "Kind": "UNIT",
+        "Runtime": {
+          "Name": "APPSYNC_JS",
+          "RuntimeVersion": "1.0.0",
+        },
+        "TypeName": "Query",
+      },
+      "Type": "AWS::AppSync::Resolver",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
