@@ -15,10 +15,24 @@ Constructs to transpile and bundle Typescript to valid AWS Appsync's JS resolver
 
 # ✨ Constructs
 
-- [AppsyncTypescriptFunction](src%2Flib%2FAppsyncTypescriptFunction.ts) - To transpile and bundle Typescript
-- [TSExpressPipelineResolver](src%2Flib%2FJSExpressPipelineResolver.ts) - To use AppsyncTypescriptFunction with boilerplate code
+- [TypescriptUnitResolver](src%2Flib%2FJSExpressPipelineResolver.ts) - Unit resolver with typescript source
+- [AppsyncTypescriptFunction](src%2Flib%2FAppsyncTypescriptFunction.ts) - Appsync function with typescript source
 
 # 🚀 Usage
+
+- TypescriptUnitResolver
+
+```typescript
+import { TypescriptUnitResolver } from 'cdk-appsync-typescript-resolver'
+
+const resolver = new TypescriptUnitResolver(stack, "DemoResolver", {
+    api: new appsync.GraphqlApi(...),
+    typeName: "Query",
+    fieldName: "hello",
+    path: path.join(__dirname, "path", "to", "file.ts"),
+    sourceMap: true,
+});
+```
 
 - AppsyncTypescriptFunction
 ```typescript
@@ -30,19 +44,6 @@ const appsyncFunction = new AppsyncTypescriptFunction(stack, "TSDemoFunction", {
     path: path.join(__dirname, "path", "to", "file.ts"),
     dataSource: new appsync.DynamoDbDataSource(...),
     sourceMap: true,
-});
-```
-
-- TSExpressPipelineResolver
-
-```typescript
-import { TSExpressPipelineResolver } from 'cdk-appsync-typescript-resolver'
-...
-const resolver = new TSExpressPipelineResolver(testStack, "DemoResolver", {
-    api: new appsync.GraphqlApi(...),
-    typeName: "Query",
-    fieldName: "hello",
-    tsFunction: new AppsyncTypescriptFunction(...),
 });
 ```
 

@@ -28,6 +28,13 @@ export interface AppsyncTypescriptFunctionProps {
    */
   readonly requestMappingTemplate?: aws_appsync.MappingTemplate;
   /**
+   * The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+   * Can only be set when using LambdaDataSource.
+   * @default - No max batch size
+   * @stability stable
+   */
+  readonly maxBatchSize?: number;
+  /**
    * the description for this AppSync Function.
    * @default - no description
    * @stability stable
