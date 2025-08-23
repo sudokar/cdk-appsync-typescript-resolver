@@ -65,7 +65,7 @@
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "esbuild": "^0.25.8"
+    "esbuild": "^0.25.9"
   },
   "bundledDependencies": [
     "esbuild"
