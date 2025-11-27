@@ -90,7 +90,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.isConstruct"></a>
 
 ```typescript
 import { AppsyncTypescriptFunction } from 'cdk-appsync-typescript-resolver'
@@ -99,6 +99,20 @@ AppsyncTypescriptFunction.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.isConstruct.parameter.x"></a>
 
@@ -346,6 +360,20 @@ TSExpressPipelineResolver.isConstruct(x: any)
 
 Checks if `x` is a construct.
 
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.isConstruct.parameter.x"></a>
 
 - *Type:* any
@@ -452,7 +480,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-appsync-typescript-resolver.TypescriptUnitResolver.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-appsync-typescript-resolver.TypescriptUnitResolver.isConstruct"></a>
 
 ```typescript
 import { TypescriptUnitResolver } from 'cdk-appsync-typescript-resolver'
@@ -461,6 +489,20 @@ TypescriptUnitResolver.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-appsync-typescript-resolver.TypescriptUnitResolver.isConstruct.parameter.x"></a>
 
