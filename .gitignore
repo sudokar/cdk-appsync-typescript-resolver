@@ -55,3 +55,4 @@ tsconfig.json
 !/.projenrc.ts
 !/src/AppsyncTypescriptFunctionProps.ts
 !/src/TSExpressPipelineResolverProps.ts
+!/src/TypescriptUnitResolverProps.ts

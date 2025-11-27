@@ -8,9 +8,11 @@ export const getTestStack = () => new cdk.Stack(new cdk.App(), 'TestStack');
 export const getTestApi = (stack: cdk.Stack) =>
   new appsync.GraphqlApi(stack, 'Api', {
     name: 'test-api',
-    schema: appsync.SchemaFile.fromAsset(
-      path.join(__dirname, 'resources', 'schema.graphql'),
-    ),
+    definition: {
+      schema: appsync.SchemaFile.fromAsset(
+        path.join(__dirname, 'resources', 'schema.graphql'),
+      ),
+    },
   });
 
 export const getTypescriptFunction = (
