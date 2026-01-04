@@ -311,17 +311,17 @@
     "@jridgewell/trace-mapping" "0.3.9"
 
 "@emnapi/core@^1.4.3":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.7.1.tgz#3a79a02dbc84f45884a1806ebb98e5746bdfaac4"
-  integrity sha512-o1uhUASyo921r2XtHYOHy7gdkGLge8ghBEQHMWmyJFoXlpU58kIrhhN3w26lpQb6dspetweapMn2CSNwQ8I4wg==
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.8.0.tgz#2a7c25c1c762c8fbf3441eda572c4b9d87edb4e3"
+  integrity sha512-ryJnSmj4UhrGLZZPJ6PKVb4wNPAIkW6iyLy+0TRwazd3L1u0wzMe8RfqevAh2HbcSkoeLiSYnOVDOys4JSGYyg==
   dependencies:
     "@emnapi/wasi-threads" "1.1.0"
     tslib "^2.4.0"
 
 "@emnapi/runtime@^1.4.3":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.7.1.tgz#a73784e23f5d57287369c808197288b52276b791"
-  integrity sha512-PVtJr5CmLwYAU9PZDMITZoR5iAOShYREoR45EyyLrbntV50mdePTgUn4AmOw90Ifcj+x2kRjdzr1HP3RrNiHGA==
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.8.0.tgz#85d78a090880b3524f88d9916124f1acd6b6c6de"
+  integrity sha512-Z82FDl1ByxqPEPrAYYeTQVlx2FSHPe1qwX465c+96IRS3fTdSYRoJcRxg3g2fEG5I69z1dSEWQlNRRr0/677mg==
   dependencies:
     tslib "^2.4.0"
 
@@ -5389,9 +5389,9 @@ trim-newlines@^3.0.0:
   integrity sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==
 
 ts-api-utils@^2.2.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/ts-api-utils/-/ts-api-utils-2.3.0.tgz#9f397ac9d88ac76e8dd6e8bc4af0dbf98af99f73"
-  integrity sha512-6eg3Y9SF7SsAvGzRHQvvc1skDAhwI4YQ32ui1scxD1Ccr0G5qIIbUBT3pFTKX8kmWIQClHobtUdNuaBgwdfdWg==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/ts-api-utils/-/ts-api-utils-2.4.0.tgz#2690579f96d2790253bdcf1ca35d569ad78f9ad8"
+  integrity sha512-3TaVTaAv2gTiMB35i3FiGJaRfwb3Pyn/j3m/bfAvGe8FB7CF6u+LMYqYlDh7reQf7UNvoTvdfAqHGmPGOSsPmA==
 
 ts-jest@^29.4.6:
   version "29.4.6"
@@ -5535,9 +5535,9 @@ typescript@^5.9.3:
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
 
 typescript@next:
-  version "6.0.0-dev.20251231"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20251231.tgz#96db3d5841cd8b741861044c68f085d04074dd3c"
-  integrity sha512-CArSKxBM7uBaqjY4iz8HYaby8evlX4g2XplgMZnWGmAnNw51AoVyxvqp81coVGKX0urUBaGgrWyKqhjRPcxpgg==
+  version "6.0.0-dev.20260103"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20260103.tgz#41e1ecf150934d3498aee0794367e1ee34e391df"
+  integrity sha512-RXrVthaC7nOE2/A9x/SZM6DRiPSSvzlAipv+1p9eAi1tOouIkn9LefHDenVs21JN7coo+2U+Lplxwvqi18+SMw==
 
 typescript@~5.5:
   version "5.5.4"
