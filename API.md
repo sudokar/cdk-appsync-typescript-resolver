@@ -45,6 +45,7 @@ new AppsyncTypescriptFunction(scope: IConstruct, id: string, props: AppsyncTypes
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -56,6 +57,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-appsync-typescript-resolver.AppsyncTypescriptFunction.applyRemovalPolicy"></a>
 
@@ -331,6 +353,7 @@ new TSExpressPipelineResolver(scope: IConstruct, id: string, props: TSExpressPip
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolver.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-appsync-typescript-resolver.TSExpressPipelineResolver.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -341,6 +364,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### ~~`with`~~ <a name="with" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-appsync-typescript-resolver.TSExpressPipelineResolver.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -461,6 +505,7 @@ new TypescriptUnitResolver(scope: IConstruct, id: string, props: TypescriptUnitR
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-appsync-typescript-resolver.TypescriptUnitResolver.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-appsync-typescript-resolver.TypescriptUnitResolver.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -471,6 +516,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-appsync-typescript-resolver.TypescriptUnitResolver.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-appsync-typescript-resolver.TypescriptUnitResolver.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
